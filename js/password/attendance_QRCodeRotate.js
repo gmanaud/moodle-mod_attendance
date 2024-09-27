@@ -16,9 +16,10 @@ class attendance_QRCodeRotate {
         this.timeOffset = new Date();
     }
 
-    start(sessionId, qrCodeHTMLElement, timerHTMLElement, serverTime) {
+    start(sessionId, qrCodeHTMLElement, textPasswordHTMLElement, timerHTMLElement, serverTime) {
         this.sessionId = sessionId;
         this.qrCodeHTMLElement = qrCodeHTMLElement;
+        this.textPasswordHTMLElement = textPasswordHTMLElement;
         this.timerHTMLElement = timerHTMLElement;
         this.timeOffset = new Date() - new Date(serverTime * 1000);
         console.log(`Sync OK - Server time is ${new Date(serverTime * 1000)}\nClient's time is ${this.timeOffset < 0 ? 'late' : 'early'} by ${Math.abs(this.timeOffset)} milliseconds.`);
@@ -40,6 +41,8 @@ class attendance_QRCodeRotate {
         var qrcodeurl = document.URL.substr(0,document.URL.lastIndexOf('/')) + '/attendance.php?qrpass=' + password + '&sessid=' + this.sessionId;
         this.qrCodeInstance.clear();
         this.qrCodeInstance.makeCode(qrcodeurl);
+        // display new password
+        this.textPasswordHTMLElement.innerHTML = '<h2>'+password+'</h2>';
     }
 
     updateTimer(timeLeft) {

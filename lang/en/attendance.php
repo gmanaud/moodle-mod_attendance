@@ -541,6 +541,7 @@ $string['showqrcode'] = 'Show QR code';
 $string['showsessiondescriptiononreport'] = 'Show session description in report';
 $string['showsessiondescriptiononreport_desc'] = 'Show the session description in the attendance report listing.';
 $string['showsessiondetails'] = 'Show session details';
+$string['showtextpassword'] = 'Show password';
 $string['somedisabledstatus'] = '(Some options have been removed as the session has started.)';
 $string['sortedgrid'] = 'Sorted grid';
 $string['sortedlist'] = 'Sorted list';
